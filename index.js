@@ -15,6 +15,20 @@ var lib = {
         frames: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
         interval: 200
     },
+    beautiful: {
+        frames: [
+            '▁      ',
+            '▁ ▃    ',
+            '▁ ▃ ▅  ',
+            '▁ ▃ ▅ ▇',
+            '  ▃ ▅ ▇',
+            '    ▅ ▇',
+            '      ▇',
+            '       ',
+        ],
+        interval: 150
+
+    },
     arrow: {
         frames: ['>  ', '>> ', '>>>', '   '],
         interval: 200
@@ -36,7 +50,7 @@ function loader(preset, opts) {
 
     spinner = typeof preset === 'string' ? lib[preset] : preset;
 
-    opts = opts || {};
+    opts = opts || {};
 
     if (opts.frames) {
         spinner.frames = opts.frames;
@@ -100,5 +114,3 @@ function loader(preset, opts) {
 loader.spinner = function(name) {
     return lib[name];
 };
-
-loader('arrow', {speed: 'fast'}).start();
